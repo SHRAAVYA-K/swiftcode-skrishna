@@ -29,7 +29,7 @@ var  exampleSocket =  new  WebSocket("ws://localhost:9000/chatSocket");
     $scope.sendMessage = function () {    
     	exampleSocket.send($scope.userMessage);     
    		$scope.userMessage = "";
-        $("#message-pane").animate({    scrollTop: $('#message-pane').prop("scrollHeight") }, 1000);
+        $("#message-pane").animate({ scrollTop: $('#message-pane').prop("scrollHeight") }, 1000);
 
     };
                    $scope.trust = $sce.trustAsHtml;
