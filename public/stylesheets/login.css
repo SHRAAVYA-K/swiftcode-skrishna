@@ -10,6 +10,7 @@
 body {
  background-image: url('http://www.indexpresse.fr/wp-content/uploads/2014/10/content2.jpg');
  background-position: cover;
+ background-size: contain;
  height: 100%;
  width: 100%;
  overflow-x: hidden;
