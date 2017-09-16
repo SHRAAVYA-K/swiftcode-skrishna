@@ -3,6 +3,8 @@
 # ~~~~
 
 # An example controller showing a sample home page
+GET     /login                      controllers.HomeController.login
+POST    /login                      controllers.HomeController.authenti
 GET     /                           controllers.HomeController.index
 GET     /chatSocket                 controllers.HomeController.chatSocket
 # An example controller showing how to use dependency injection
