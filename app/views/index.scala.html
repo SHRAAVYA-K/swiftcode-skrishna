@@ -8,7 +8,7 @@
 	<body ng-app="chatApp" ng-controller="chatController" layout="row" layout-align="center stretch">
 		<md-card flex="none" layout="column">
       	 <md-content flex="90" id="message-pane" style="width:800px;
-         background: url(https://static1.squarespace.com/static/581c9bef197aeafe6664b950/t/58213df920099e79d2af5f68/1478573568896/;
+         background: url(http://www.indexpresse.fr/wp-content/uploads/2014/10/content2.jpg);
          background-repeat:no-repeat;
          background-size:cover;
          background-position:center;
@@ -19,7 +19,7 @@
           
           <md-card style="max-width: 75%; max-height: 50%; padding-top: 10px ; padding-bottom:10px ;border-radius: 10px; padding: 10px; font-size: 14px; font-family: Comic Sans MS" 
           ng-style="message.sender=='BOT'?
-          {'background-color':'#f97509'}:
+          {'background-color':'#5495ff'}:
           {'background-color':'#eff1f2'}">
             <span>{{message.text}}</span>
             <span ng-bind-html="trust(message.feedResponse.description)">
@@ -39,8 +39,10 @@
                    <input ng-model="userMessage">
                </md-input-container>
            </form>
-           <md-button flex="10" style="height: 100%; padding: 0px " class="md-icon-button " ng-click="sendMessage() ">
-               <md-icon style="height: 100%; padding: 0px; " md-svg-icon="/assets/images/ic_chat_48px.svg"></md-icon>
+           <md-button  flex="10" style="height: 100%; padding: 0px " " ng-click="sendMessage() ">
+           <img src="/assets/images/blue-robot-md.png" style="width:100%"/>
+               <!--<!<md-icon style="height: 100%; padding: 0px; " md-svg-icon="/assets/images/blue-robot-md.png">
+               </md-icon>-->
            </md-button>
        </md-card>
    </md-card>

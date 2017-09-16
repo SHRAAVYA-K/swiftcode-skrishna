@@ -3,8 +3,8 @@ var app = angular.module('chatApp',['ngMaterial']);
 
 app.config(function($mdThemingProvider) {
      $mdThemingProvider.theme('default')
-       .primaryPalette('brown')
-       .accentPalette('orange');
+       .primaryPalette('blue')
+       .accentPalette('indigo');
    });
 
 
