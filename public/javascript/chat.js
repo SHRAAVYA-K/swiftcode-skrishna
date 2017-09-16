@@ -3,34 +3,38 @@ var app = angular.module('chatApp',['ngMaterial']);
 
 app.config(function($mdThemingProvider) {
      $mdThemingProvider.theme('default')
-       .primaryPalette('blue')
-       .accentPalette('indigo');
+       .primaryPalette('indigo')
+       .accentPalette('indigo')
+       .dark;
    });
 
 
 
-app.controller('chatController', function($scope) {
+app.controller('chatController', function($scope, $sce) {
 
-	$scope.messages=[
-	{
-		sender:"BOT",
-		text:"What can I do for you today?",
-		time:"1.12pm"
+	$scope.messages=[{sender:"BOT",text:"Hey Human!What do you wanna know?"}];
 
-	},
-	{
-		sender:"USER",
-		text:"Dance around a tree",
-		time:"9.00"
-		
-	}
-	];
-    var  exampleSocket =  new  WebSocket("ws://localhost:9000/chatSocket");
+   
+var  exampleSocket =  new  WebSocket("ws://localhost:9000/chatSocket"); 
+   exampleSocket.onmessage  =   function  (event) {    
+       var jsonData = JSON.parse(event.data);   
+       jsonData.time = new Date().toLocaleTimeString();  
+       $scope.messages.push(jsonData);    
+       $scope.$apply();     
+       console.log(jsonData);     
+        };
 
-    exampleSocket.onmessage  =   function  (event) {
-           var jsonData = JSON.parse(event.data);
-           console.log(jsonData);
-       };
+
+
+    $scope.sendMessage = function () {    
+    	exampleSocket.send($scope.userMessage);     
+   		$scope.userMessage = "";
+        $("#message-pane").animate({    scrollTop: $('#message-pane').prop("scrollHeight") }, 1000);
+
+    };
+                   $scope.trust = $sce.trustAsHtml;
+
+
 });
 
 
